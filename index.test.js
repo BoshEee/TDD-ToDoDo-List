@@ -18,3 +18,24 @@ test("Submitting a new task adds it to the list", (t) => {
   t.equal(result.textContent, "study");
   result.textContent = "";
 });
+
+test("Submitting a new task adds it to the list", (t) => {
+    let aInput = document.querySelector('.todo-input');
+    let submitButton = document.querySelector('.todo-btn');
+    let list = document.querySelector('.todo-list');
+
+    aInput.value = 'Work';
+    submitButton.click();
+
+    const todoItem = document.createElement('li');
+    todoItem.textContent = aInput.value;
+    list.appendChild(todoItem);
+
+    const actual = list.firstChild.textContent;
+    const expected = 'Work';
+
+    t.equal(actual, expected);
+
+    list.textContent = '';
+    aInput.value = '';
+});
