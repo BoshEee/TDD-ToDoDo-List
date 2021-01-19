@@ -31,7 +31,7 @@ test("Submitting a new task adds it to the list", (t) => {
     todoItem.textContent = aInput.value;
     list.appendChild(todoItem);
 
-    const actual = list.firstChild.textContent;
+    const actual = list.lastChild.textContent;
     const expected = 'Work';
 
     t.equal(actual, expected);
