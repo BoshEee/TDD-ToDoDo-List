@@ -1,7 +1,7 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -12,7 +12,9 @@ body {
 header {
     font-size: 1.5rem;
 }
-header, form {
+
+header,
+form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,4 +59,9 @@ form button:hover {
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s ease;
+}
+
+.checkstyle {
+    background-color: #bb70db;
+    color: black;
 }
