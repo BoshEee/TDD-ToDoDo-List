@@ -31,7 +31,7 @@ test("Checking an entry marks it as complete", t => {
 
     const todos = document.getElementsByClassName("todo");
     todos[0].firstChild.nextSibling.click();
-    const actual = document.getElementsByClassName("checkstyle");
+    const actual = document.getElementsByClassName("completed");
 
     t.equal(actual.length, 1);
 
@@ -61,5 +61,26 @@ test("Deleting an entry removes it from the list", t => {
 });
 
 test("Toggling the filter hides completed tasks from the list", t => {
+   
+    let compSelect = document.querySelector('.filter-todo');
+    compSelect.click();
+    let select = compSelect[1].value;
+    const todos = document.getElementsByClassName("todo");
 
+    let actual = todos.length;
+
+    t.equal(select, 'completed');
+});
+
+test("Toggling the filter hides completed tasks from the list", t => {
+   
+    let compSelect = document.querySelector('.filter-todo');
+    let select = compSelect[1].value;
+    const todos = document.getElementsByClassName("todo");
+
+    compSelect.click();
+
+    let actual = todos.length;
+
+    t.equal(select, 'uncompleted');
 });
