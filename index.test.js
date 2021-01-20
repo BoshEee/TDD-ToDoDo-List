@@ -26,6 +26,7 @@ test("Submitting a new task adds it to the list", (t) => {
   result.textContent = "";
 });
 
+
 // test("Submitting a new task adds it to the list", (t) => {
 //   let aInput = document.querySelector(".todo-input");
 //   aInput.value = "work";
@@ -66,3 +67,25 @@ test("Submitting a new task adds it to the list", (t) => {
 //   list.textContent = "";
 //   aInput.value = "";
 // });
+
+test("Submitting a new task adds it to the list", (t) => {
+    let aInput = document.querySelector('.todo-input');
+    let submitButton = document.querySelector('.todo-btn');
+    let list = document.querySelector('.todo-list');
+
+    aInput.value = 'Work';
+    submitButton.click();
+
+    const todoItem = document.createElement('li');
+    todoItem.textContent = aInput.value;
+    list.appendChild(todoItem);
+
+    const actual = list.lastChild.textContent;
+    const expected = 'Work';
+
+    t.equal(actual, expected);
+
+    list.textContent = '';
+    aInput.value = '';
+});
+
