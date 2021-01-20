@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="#" />
+    <link rel="icon" href="download.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
@@ -29,15 +29,24 @@
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
+          <option value="starred">Starred</option>
         </select>
+
+        
       </div>
     </form>
 
     <div class="todo-box">
       <ul class="todo-list"></ul>
+      <br />
     </div>
+    <div class="clearbutton">
+      <button class="clear-Btn"> <i class="fas fa-broom"> Clear List </i> </button>
+    </div>
+    
     <script src="index.js"></script>
     <script src="test-helpers.js"></script>
     <script src="index.test.js"></script>
   </body>
+
 </html>

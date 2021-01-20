@@ -1,4 +1,13 @@
-//Haneen - Add tasks to a list so that I can keep track of them
+// Testing the username
+test("SHOWING THE USERNAME", t => {
+    window.onload();
+    let result = username + "'s To Do List";
+    let expected = nameHdr.textContent;
+    t.equal(result, expected);
+});
+
+
+// testing to a list so that I can keep track of them
 
 test("Submitting a new task adds it to the list", (t) => {
     let aInput = document.querySelector(".todo-input");
@@ -8,7 +17,6 @@ test("Submitting a new task adds it to the list", (t) => {
     let result = document.querySelector(".todo-list");
     console.log(result.textContent);
     t.equal(result.firstChild.firstChild.textContent, "work");
-
     result.textContent = "";
 });
 
@@ -23,10 +31,10 @@ test("Submitting a new task adds it to the list", (t) => {
     aInput.value = "study";
     submitButton.click();
     t.equal(result.lastChild.firstChild.textContent, "study");
-    // result.textContent = "";
+    
 });
 
-
+// Testing completed tasks
 test("Checking an entry marks it as complete", t => {
 
     const todos = document.getElementsByClassName("todo");
@@ -38,9 +46,9 @@ test("Checking an entry marks it as complete", t => {
     const checked = actual[0].firstChild.textContent;
     t.equal(checked, "play");
 
-
 });
 
+// Testing deleting tasks
 test("Deleting an entry removes it from the list", t => {
     const todos = document.getElementsByClassName("todo");
 
@@ -60,6 +68,8 @@ test("Deleting an entry removes it from the list", t => {
 
 });
 
+
+// Testing filters
 test("Toggling the filter hides completed tasks from the list", t => {
    
     let compSelect = document.querySelector('.filter-todo');
@@ -83,4 +93,17 @@ test("Toggling the filter hides completed tasks from the list", t => {
     let actual = todos.length;
 
     t.equal(select, 'uncompleted');
+});
+
+// Testing Clearing The List
+test("Toggling the filter hides completed tasks from the list", t => {
+   
+    let beforeList = document.querySelector('.todo-list');
+    let beforeClear = beforeList.childNodes;
+
+    clearBtn.click();
+
+    let result = 0;
+
+    t.equal(result, beforeClear.length);
 });
