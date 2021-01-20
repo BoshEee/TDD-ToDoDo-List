@@ -152,9 +152,7 @@ select {
   position: relative;
   overflow: hidden;
 }
-.hidden {
-  opacity: 0;
-}
+
 select {
   color: #4f2b5e;
   width: 10rem;
@@ -179,4 +177,33 @@ select {
 .select:hover::after {
   background: #4f2b5e;
   color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+  header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.clearbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+select {
+  width: 20rem;
+  padding: 1.5rem;
+}
+.select {
+  margin: 1.5rem;
+}
+.select::after {
+  padding: 1.5rem;
+}
+
 }
