@@ -93,7 +93,7 @@ test("Toggling the filter hides completed tasks from the list", (t) => {
 
   clearBtn.click();
 
-  let result = 0;
+ let expected = 0;
 
-  t.equal(result, beforeClear.length);
+  t.equal(beforeClear.lengthresult, expected);
 });
