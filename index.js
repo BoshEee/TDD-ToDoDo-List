@@ -5,22 +5,21 @@ console.clear();
 let textInput = document.querySelector(".todo-input");
 let toDoList = document.querySelector(".todo-list");
 let addBtn = document.querySelector(".todo-btn");
-let filterSelect = document.querySelector('.filter-todo');
-let nameHdr = document.querySelector('h1');
-let clearBtn = document.querySelector('.clear-Btn');
+let filterSelect = document.querySelector(".filter-todo");
+let nameHdr = document.querySelector("h1");
+let clearBtn = document.querySelector(".clear-Btn");
 
 // Username Prompt
 let username = prompt("Please Enter Your Name");
 
 window.onload = function () {
-    if (username === "" || username === null) {
-        username = "Someone";
-        nameHdr.textContent = "Someone's To Do List"
-    } else {
-        nameHdr.textContent = username + "'s To Do List";
-    }
-    
-}
+  if (username === "" || username === null) {
+    username = "Someone";
+    nameHdr.textContent = "Someone's To Do List";
+  } else {
+    nameHdr.textContent = username + "'s To Do List";
+  }
+};
 
 // Event Listener
 addBtn.addEventListener("click", add);
@@ -28,49 +27,46 @@ filterSelect.addEventListener("click", filterTodo);
 clearBtn.addEventListener("click", clearList);
 // Functions
 function add(event) {
-    event.preventDefault();
-    
-    let toDoDiv = document.createElement("div");
-    let newLi = document.createElement("li");
-    let compBtn = document.createElement("button");
-    let trashBtn = document.createElement("button");
-    let starBtn = document.createElement("button");
+  event.preventDefault();
 
-    toDoDiv.classList.add("todo");
-    compBtn.classList.add('comp-Btn');
-    newLi.classList.add('todo-item');
-    trashBtn.classList.add('trash-Btn');
-    starBtn.classList.add('star-Btn');
+  let toDoDiv = document.createElement("div");
+  let newLi = document.createElement("li");
+  let compBtn = document.createElement("button");
+  let trashBtn = document.createElement("button");
+  let starBtn = document.createElement("button");
 
-    compBtn.innerHTML = '<i class="fas fa-check"></i>';
-    trashBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    starBtn.innerHTML = '<i class="fas fa-star"></i>';
+  toDoDiv.classList.add("todo");
+  compBtn.classList.add("comp-Btn");
+  newLi.classList.add("todo-item");
+  trashBtn.classList.add("trash-Btn");
+  starBtn.classList.add("star-Btn");
 
-    compBtn.addEventListener("click", check);
+  compBtn.innerHTML = '<i class="fas fa-check"></i>';
+  trashBtn.innerHTML = '<i class="fas fa-trash"></i>';
+  starBtn.innerHTML = '<i class="fas fa-star"></i>';
 
-    function check(event) {
-        event.preventDefault();
-        toDoDiv.classList.toggle("completed");
-    }
+  compBtn.addEventListener("click", check);
 
-    trashBtn.addEventListener("click", deleted);
+  function check(event) {
+    toDoDiv.classList.toggle("completed");
+  }
 
-    function deleted(event) {
-        //event.preventDefault();
-        toDoDiv.classList.add('fall');
-        toDoDiv.addEventListener('transitionend', function () {
-            toDoDiv.remove();
-        })
-        
-    }
+  trashBtn.addEventListener("click", deleted);
 
-    starBtn.addEventListener("click", star);
+  function deleted(event) {
+    toDoDiv.classList.add("fall");
+    toDoDiv.addEventListener("transitionend", function () {
+      toDoDiv.remove();
+    });
+  }
 
-    function star(event) {
-        event.preventDefault();
-        toDoDiv.classList.toggle("stared");
-    }
+  starBtn.addEventListener("click", star);
 
+  function star(event) {
+    toDoDiv.classList.toggle("stared");
+  }
+  if (textInput.value.length === 0) alert("You must write somthing");
+  else {
     newLi.textContent = textInput.value;
 
     toDoList.appendChild(toDoDiv);
@@ -78,52 +74,52 @@ function add(event) {
     toDoDiv.appendChild(compBtn);
     toDoDiv.appendChild(starBtn);
     toDoDiv.appendChild(trashBtn);
-    
 
     textInput.value = "";
+  }
 }
 
 // Filter Function
 
 function filterTodo(event) {
-    const todos = toDoList.childNodes;
+  const todos = toDoList.childNodes;
 
-    todos.forEach(function(todo) {
-        switch(event.target.value) {
-            case "all":
-                todo.style.display = 'flex';
-                break;
-            case "completed":
-                if (todo.classList.contains('completed')) {
-                    todo.style.display = 'flex';
-                } else {
-                    todo.style.display = 'none';
-                }
-                break;
-            case "uncompleted":
-                if (!todo.classList.contains('completed')) {
-                    todo.style.display = 'flex';
-                } else {
-                    todo.style.display = 'none';
-                }
-                break;
-                case "starred":
-                    if (todo.classList.contains('stared')) {
-                        todo.style.display = 'flex';
-                    } else {
-                        todo.style.display = 'none';
-                    }
-                    break;    
+  todos.forEach(function (todo) {
+    switch (event.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
         }
-    })
+        break;
+      case "uncompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "starred":
+        if (todo.classList.contains("stared")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+    }
+  });
 }
 
 function clearList(event) {
-    const todos = toDoList.childNodes;
-    
-    for (let i = 0; i <= todos.length + 1; i++) {
-        todos.forEach(function(todo) { 
-        todo.remove();
-    })
-    }
+  const todos = toDoList.childNodes;
+
+  for (let i = 0; i <= todos.length + 1; i++) {
+    todos.forEach(function (todo) {
+      todo.remove();
+    });
+  }
 }

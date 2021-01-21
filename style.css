@@ -70,6 +70,8 @@ form button:hover {
 
 .todo li {
   flex: 1;
+  max-width: 500px;
+  overflow-x: auto;
 }
 
 .clear-Btn {
@@ -82,7 +84,7 @@ form button:hover {
 }
 .clear-Btn:hover {
   background: white;
-  color:#4f2b5e;
+  color: #4f2b5e;
 }
 .star-Btn,
 .trash-Btn,
@@ -95,11 +97,11 @@ form button:hover {
   font-size: 1rem;
 }
 .star-Btn {
-  background:  #a19f1a;
+  background: #a19f1a;
   color: white;
 }
 .star-Btn:hover {
-  background:  white;
+  background: white;
   color: #a19f1a;
 }
 .trash-Btn:hover {
@@ -129,7 +131,7 @@ form button:hover {
   opacity: 0.5;
 }
 .stared {
-  background-color:  #a19f1a;
+  background-color: #a19f1a;
   color: black;
   text-transform: uppercase;
   transition: all 0.5s ease;
@@ -179,31 +181,33 @@ select {
   color: white;
 }
 
-
 @media only screen and (max-width: 600px) {
   header,
-form {
-  min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.clearbutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-select {
-  width: 20rem;
-  padding: 1.5rem;
-}
-.select {
-  margin: 1.5rem;
-}
-.select::after {
-  padding: 1.5rem;
-}
-
+  form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .clearbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  select {
+    width: 20rem;
+    padding: 1.5rem;
+  }
+  .select {
+    margin: 1.5rem;
+    max-width: 300px;
+  }
+  .select::after {
+    padding: 1.5rem;
+  }
+  .todo-input {
+    max-width: 300px;
+  }
 }
